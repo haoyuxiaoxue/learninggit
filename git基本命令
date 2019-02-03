@@ -53,8 +53,14 @@ git branch -d dev
 
 因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
 
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
 
+你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
+git stash apply stash@{0}
 
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+多人协作时，大家都会往master和dev分支上推送各自的修改。
 
 
 
