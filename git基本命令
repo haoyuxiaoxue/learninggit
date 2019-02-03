@@ -1,0 +1,64 @@
+
+
+git add #将文件存入暂存区
+git commit -m "版本描述" #把暂存区的所有内容提交到当前分支
+git log
+git reset --hard HEAD^
+git reset --hard 版本号（前几位就可以）
+git reflog 
+
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+
+git rm # 删除文件 删除后 git commit 提交一下
+
+
+网站上建立一个git仓库learninggit
+关联远程仓库 
+添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+git remote add origin https://github.com/haoyuxiaoxue/learninggit.git
+推送当前版本到git
+git push -u origin master # 第一次推送需要-u 以后不需要加-u 
+加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来
+
+小结：
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！
+
+创建分支
+
+我们创建dev分支，然后切换到dev分支：
+git checkout -b dev
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+git branch dev
+git checkout dev
+
+用git branch命令查看当前分支：
+git branch
+
+git branch命令会列出所有分支，当前分支前面会标一个*号。
+
+我们把dev分支的工作成果合并到master分支上：
+git merge dev
+
+合并完成后，就可以放心地删除dev分支了：
+git branch -d dev
+
+因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
+
+
+
+
+
+
+
+
+
+

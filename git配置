@@ -1,0 +1,39 @@
+安装git
+sudo apt-get install git git-core
+
+安装ssh
+sudo apt-get install ssh
+
+因为GitHub会用到SSH，因此需要在shell里检查是否可以连接到GitHub
+
+ssh -T git@github.com
+
+如果看到：
+Warning: Permanently added ‘github.com,204.232.175.90’ (RSA) to the list of known hosts.
+Permission denied (publickey).
+
+则说明可以连接
+
+在安装GitHub之前，需要先安装SSH keys
+
+cd ~/.ssh
+ls
+
+查看该目录下是否已经具有ssh keys id_rsa（私钥）和id_rsa.pub（公钥）这两个文件
+
+如果有 备份并移除
+
+ssh-keygen -t rsa -C "你自己的github对应的邮箱地址"
+
+id_rsa（私钥）和id_rsa.pub（公钥）这两个文件被创建了 
+
+在GitHub中，依次点击Settings -> SSH Keys -> Add SSH Key，将id_rsa.pub文件中的字符串复制进去，注意字符串中没有换行和空格。
+
+再次检查SSH连接情况（在～/.ssh目录下）：
+
+ssh -T git@github.com
+
+如果看到如下所示，则表示添加成功：
+Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.
+
+

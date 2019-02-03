@@ -1,0 +1,15 @@
+修改user.name/user.email
+
+如果想要修改已经配置过的user.name或email，有两种方式，一种是通过git bash来修改；一种是直接修改.gitconfig文件。
+
+一
+git config --global --replace-all user.name "your user name"
+
+git config --global --replace-all user.email"your user email"
+
+二
+修改.gitconfig文件
+
+该文件是隐藏文件，位于C:\Users\{user}\.gitconfig，直接修改里边的name或者email，如果有重复的name或email，可以将其删掉，只剩下一个就好。
+
+修改完，通过git bash输入git config –list可以查看是否修改成功了。
