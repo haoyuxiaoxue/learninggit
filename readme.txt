@@ -1,3 +1,2 @@
 git test file
-aaaaa
-bbbbb
+git 使用教程总结
