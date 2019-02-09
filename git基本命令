@@ -1,6 +1,7 @@
 
 
 git add #将文件存入暂存区
+git add --a #将git本地空间所有文件及子文件放入暂存区
 git commit -m "版本描述" #把暂存区的所有内容提交到当前分支
 git log
 git reset --hard HEAD^
